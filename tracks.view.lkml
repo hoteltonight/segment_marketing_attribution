@@ -41,6 +41,11 @@ view: tracks {
     sql: ${TABLE}.timestamp ;;
   }
 
+  dimension: platform_sk {
+    type: number
+    sql: ${TABLE}.platform_sk ;;
+  }
+
   dimension: event_id {
     type: string
     sql: CONCAT(cast(${received_raw} AS string), ${anonymous_id}) ;;

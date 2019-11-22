@@ -1,7 +1,7 @@
 project_name: "marketing_attribution_block"
 
 constant: SEGMENT_SCHEMA_NAME {
-  value: "MARKETING"
+  value: "SEGMENT_EVENTS"
 }
 
 constant: FACEBOOK_SCHEMA_NAME {

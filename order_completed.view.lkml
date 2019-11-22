@@ -1,5 +1,5 @@
 view: order_completed {
-  sql_table_name: @{SEGMENT_SCHEMA_NAME}.ORDER_COMPLETED ;;
+  sql_table_name: @{SEGMENT_SCHEMA_NAME}.APP_BOOKING_PURCHASED ;;
 
   dimension: id {
     primary_key: yes
@@ -20,11 +20,6 @@ view: order_completed {
   dimension: context_library_version {
     type: string
     sql: ${TABLE}."CONTEXT_LIBRARY_VERSION" ;;
-  }
-
-  dimension: context_traits_email {
-    type: string
-    sql: ${TABLE}."CONTEXT_TRAITS_EMAIL" ;;
   }
 
   dimension: event {
