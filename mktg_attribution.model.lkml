@@ -1,4 +1,4 @@
-connection: "looker_blocks"
+connection: "snowflake"
 
 # include all views in this project
 include: "*.view"

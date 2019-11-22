@@ -1,13 +1,13 @@
 project_name: "marketing_attribution_block"
 
 constant: SEGMENT_SCHEMA_NAME {
-  value: "WEBSITE"
+  value: "MARKETING"
 }
 
 constant: FACEBOOK_SCHEMA_NAME {
-  value: "FACEBOOK_SANDBOX"
+  value: "MARKETING"
 }
 
 constant: GOOGLE_SCHEMA_NAME {
-  value: "GOOGLE"
+  value: "MARKETING"
 }
