@@ -13,8 +13,6 @@ view: campaign_compare {
             on  a.id = i.ad_id
           join  @{FACEBOOK_SCHEMA_NAME}.campaigns c
             on  a.campaign_id = c.id
-          join  @{FACEBOOK_SCHEMA_NAME}.ad_sets ad
-            on  a.adset_id = ad.id
       group by  1
       ),
       google_perf as (

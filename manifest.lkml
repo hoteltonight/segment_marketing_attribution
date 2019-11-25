@@ -5,7 +5,7 @@ constant: SEGMENT_SCHEMA_NAME {
 }
 
 constant: FACEBOOK_SCHEMA_NAME {
-  value: "MARKETING"
+  value: "FACEBOOKADS"
 }
 
 constant: GOOGLE_SCHEMA_NAME {

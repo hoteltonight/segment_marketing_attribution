@@ -5,7 +5,7 @@
   - name: Adwords Performance
     title: Adwords Performance
     merged_queries:
-    - model: marketing_attribution
+    - model: marketing_attribution_model
       explore: session_campaign_mapping
       type: looker_line
       fields: [session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google,
@@ -16,7 +16,7 @@
       sorts: [session_campaign_mapping.session_start_date desc]
       limit: 500
       column_limit: 50
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: facebook_insights
       type: table
       fields: [facebook_insights.spend, facebook_insights.date_start_date]
@@ -27,7 +27,7 @@
       join_fields:
       - field_name: facebook_insights.date_start_date
         source_field_name: session_campaign_mapping.session_start_date
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: adwords_ad_performance_reports
       type: table
       fields: [adwords_ad_performance_reports.total_cost, adwords_ad_performance_reports.date_start_date]
@@ -90,7 +90,7 @@
     height: 7
   - name: Users Acquired
     title: Users Acquired
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: single_value
     fields: [session_campaign_mapping.visitor_count, session_campaign_mapping.session_count]
@@ -109,7 +109,7 @@
     height: 3
   - name: Conversion by Acquisition Referrer
     title: Conversion by Acquisition Referrer
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_column
     fields: [user_campaign_facts.previous_campaign_source, session_pg_trk_facts.product_view_session_count,
@@ -157,7 +157,7 @@
     height: 8
   - name: Repeat Visits
     title: Repeat Visits
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_line
     fields: [session_campaign_mapping.campaign_source, session_campaign_mapping.count,
@@ -217,7 +217,7 @@
   - name: Facebook Performance
     title: Facebook Performance
     merged_queries:
-    - model: marketing_attribution
+    - model: marketing_attribution_model
       explore: session_campaign_mapping
       type: looker_line
       fields: [session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google,
@@ -226,7 +226,7 @@
       sorts: [session_campaign_mapping.session_start_date desc]
       limit: 500
       column_limit: 50
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: facebook_insights
       type: table
       fields: [facebook_insights.spend, facebook_insights.date_start_date]
@@ -237,7 +237,7 @@
       join_fields:
       - field_name: facebook_insights.date_start_date
         source_field_name: session_campaign_mapping.session_start_date
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: adwords_ad_performance_reports
       type: table
       fields: [adwords_ad_performance_reports.total_cost, adwords_ad_performance_reports.date_start_date]
@@ -303,7 +303,7 @@
     height: 7
   - name: Revenue by Channel
     title: Revenue by Channel
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_bar
     fields: [session_campaign_mapping.total_session_revenue, user_campaign_facts.attribution_channel]
@@ -362,7 +362,7 @@
     height: 6
   - name: Purchases
     title: Purchases
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: single_value
     fields: [session_campaign_mapping.visitor_count, session_campaign_mapping.session_count]
@@ -381,7 +381,7 @@
     height: 3
   - name: Revenue
     title: Revenue
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: single_value
     fields: [session_campaign_mapping.total_session_revenue]
@@ -435,7 +435,7 @@
     height: 3
   - name: Customer Lifetime Value
     title: Customer Lifetime Value
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_line
     fields: [session_campaign_mapping.total_session_revenue, user_campaign_facts.attribution_channel,
@@ -457,7 +457,7 @@
     height: 8
   - name: First Touch to Last Touch Analysis
     title: First Touch to Last Touch Analysis
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: sankey
     fields: [session_campaign_mapping.conversion_metrics, user_campaign_facts.first_campaign,
@@ -505,7 +505,7 @@
     height: 8
   - name: User Acquisition Trends
     title: User Acquisition Trends
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_area
     fields: [session_campaign_mapping.visitor_count, user_campaign_facts.first_campaign_source,
@@ -556,7 +556,7 @@
     height: 8
   - name: First Touch - Acquisition Referrer
     title: First Touch - Acquisition Referrer
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_pie
     fields: [session_campaign_mapping.conversion_metrics, user_campaign_facts.first_campaign_source]
@@ -607,7 +607,7 @@
     height: 8
   - name: Last Touch Conversion Referrer
     title: Last Touch Conversion Referrer
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     type: looker_pie
     fields: [session_campaign_mapping.conversion_metrics, user_campaign_facts.previous_campaign_source]
@@ -644,19 +644,19 @@
   - name: Google Revenue vs Cost
     title: Google Revenue vs Cost
     merged_queries:
-    - model: marketing_attribution
+    - model: marketing_attribution_model
       explore: session_campaign_mapping
       type: table
       fields: [session_campaign_mapping.facebook_revenue_per_purchase, session_campaign_mapping.google_revenue_per_purchase,
         session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google]
-      filters:
-        user_campaign_facts.attribution_method: First Touch
-        session_campaign_mapping.session_start_date: 30 days
+#       filters:
+#         user_campaign_facts.attribution_method: First Touch
+#         session_campaign_mapping.session_start_date: 30 days
       limit: 500
       column_limit: 50
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
           value_format_name: !!null '', _kind_hint: dimension, _type_hint: number}]
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: facebook_insights
       type: table
       fields: [facebook_insights.spend]
@@ -667,7 +667,7 @@
       join_fields:
       - field_name: row
         source_field_name: row
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: adwords_campaign_performance_reports
       type: table
       fields: [adwords_campaign_performance_reports.total_cost]
@@ -729,19 +729,19 @@
   - name: Facebook Revenue vs Cost
     title: Facebook Revenue vs Cost
     merged_queries:
-    - model: marketing_attribution
+    - model: marketing_attribution_model
       explore: session_campaign_mapping
       type: table
       fields: [session_campaign_mapping.facebook_revenue_per_purchase, session_campaign_mapping.google_revenue_per_purchase,
         session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google]
-      filters:
-        user_campaign_facts.attribution_method: First Touch
-        session_campaign_mapping.session_start_date: 30 days
+#       filters:
+#         user_campaign_facts.attribution_method: First Touch
+#         session_campaign_mapping.session_start_date: 30 days
       limit: 500
       column_limit: 50
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
           value_format_name: !!null '', _kind_hint: dimension, _type_hint: number}]
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: facebook_insights
       type: table
       fields: [facebook_insights.spend]
@@ -752,7 +752,7 @@
       join_fields:
       - field_name: row
         source_field_name: row
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: adwords_campaign_performance_reports
       type: table
       fields: [adwords_campaign_performance_reports.total_cost]
@@ -814,7 +814,7 @@
   - name: Total Spend
     title: Total Spend
     merged_queries:
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: adwords_campaign_performance_reports
       type: single_value
       fields: [adwords_campaign_performance_reports.total_cost]
@@ -823,7 +823,7 @@
           value_format_name: !!null '', _kind_hint: dimension, _type_hint: number}]
       query_timezone: America/Los_Angeles
       series_types: {}
-    - model: marketing_spend
+    - model: marketing_spend_model
       explore: facebook_insights
       type: table
       fields: [facebook_insights.spend]
@@ -855,7 +855,7 @@
     default_value: Revenue
     allow_multiple_values: true
     required: false
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     listens_to_filters: []
     field: session_campaign_mapping.conversion_metric_selector
@@ -865,7 +865,7 @@
     default_value: Last Touch
     allow_multiple_values: true
     required: false
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     listens_to_filters: []
     field: user_campaign_facts.attribution_method
@@ -875,7 +875,7 @@
     default_value: 2019/06/21 to 2019/08/01
     allow_multiple_values: true
     required: false
-    model: marketing_attribution
+    model: marketing_attribution_model
     explore: session_campaign_mapping
     listens_to_filters: []
     field: session_campaign_mapping.session_start_date

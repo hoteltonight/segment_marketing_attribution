@@ -91,6 +91,6 @@ view: facebook_campaigns {
   measure: count {
     type: count
     hidden: yes
-    drill_fields: [id, name, ads.count, ad_sets.count]
+    drill_fields: [id, name, ads.count]
   }
 }
