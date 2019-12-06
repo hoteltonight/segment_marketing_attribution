@@ -9,5 +9,5 @@ constant: FACEBOOK_SCHEMA_NAME {
 }
 
 constant: GOOGLE_SCHEMA_NAME {
-  value: "MARKETING"
+  value: "GOOGLE_ADS"
 }

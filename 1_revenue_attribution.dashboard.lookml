@@ -217,7 +217,7 @@
   - name: Facebook Performance
     title: Facebook Performance
     merged_queries:
-    - model: marketing_attribution_model
+    - model: marketing_attribution:model
       explore: session_campaign_mapping
       type: looker_line
       fields: [session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google,
@@ -649,9 +649,9 @@
       type: table
       fields: [session_campaign_mapping.facebook_revenue_per_purchase, session_campaign_mapping.google_revenue_per_purchase,
         session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google]
-#       filters:
-#         user_campaign_facts.attribution_method: First Touch
-#         session_campaign_mapping.session_start_date: 30 days
+      # filters:
+      #   user_campaign_facts.attribution_method: First Touch
+      #   session_campaign_mapping.session_start_date: 30 days
       limit: 500
       column_limit: 50
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
@@ -734,9 +734,9 @@
       type: table
       fields: [session_campaign_mapping.facebook_revenue_per_purchase, session_campaign_mapping.google_revenue_per_purchase,
         session_campaign_mapping.purchases_attributed_to_facebook, session_campaign_mapping.purchases_attributed_to_google]
-#       filters:
-#         user_campaign_facts.attribution_method: First Touch
-#         session_campaign_mapping.session_start_date: 30 days
+      # filters:
+      #   user_campaign_facts.attribution_method: First Touch
+      #   session_campaign_mapping.session_start_date: 30 days
       limit: 500
       column_limit: 50
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
